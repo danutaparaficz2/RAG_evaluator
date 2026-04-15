@@ -79,7 +79,9 @@ class TestRagEvaluator(unittest.TestCase):
         }
 
         results = evaluate_systems(systems)
-        self.assertGreater(results["rag_a"]["summary"]["avg_answer_accuracy"], results["rag_b"]["summary"]["avg_answer_accuracy"])
+        rag_a_score = results["rag_a"]["summary"]["avg_answer_accuracy"]
+        rag_b_score = results["rag_b"]["summary"]["avg_answer_accuracy"]
+        self.assertGreater(rag_a_score, rag_b_score)
 
 
 if __name__ == "__main__":

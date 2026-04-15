@@ -83,7 +83,7 @@ def score_answer_usefulness(expected: str, predicted: str) -> float:
     predicted_number = _extract_number(predicted)
 
     if expected_number is not None and predicted_number is not None:
-        denominator = max(abs(expected_number), 1.0)
+        denominator = max(abs(expected_number), abs(predicted_number), 1.0)
         relative_error = abs(expected_number - predicted_number) / denominator
         return max(0.0, 1.0 - min(relative_error, 1.0))
 
